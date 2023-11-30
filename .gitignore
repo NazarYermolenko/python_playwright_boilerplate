@@ -5,6 +5,7 @@ __pycache__/
 
 report/**
 screenshots/**
+.idea/**
 
 # C extensions
 *.so
