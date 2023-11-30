@@ -1,9 +1,9 @@
 import pytest
-from playwright.sync_api import Page
+from playwright.sync_api import Page, Browser
 
-from app.duck_duck_go.DuckDuckGoPage import DuckDuckGoPage
+from framework.duck_duck_go.search_page.DDGSearchPage import DDGSearchPage
 
 
 @pytest.fixture
-def duck_duck_go_page(page: Page):
-    yield DuckDuckGoPage.open(page)
+def duck_duck_go_page(base_fixture: Browser):
+    yield DDGSearchPage.open(base_fixture.new_page())

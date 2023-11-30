@@ -7,7 +7,7 @@ from utils.date_and_time import TimeConstants
 class WaitUtils:
 
     @staticmethod
-    def until(action_func: Callable, expected_value: object,
+    def until(action_func: Callable, expected_value: object = True,
               timeout_seconds=30,
               poll_time_seconds=1):
         start_time = time.time()
