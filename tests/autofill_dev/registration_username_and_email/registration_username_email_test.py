@@ -4,6 +4,7 @@ from framework.autofill_dev.registration.email_and_username.flow.EmailAndUsernam
 from tests.autofill_dev.autofill_fixture import autofill_fixture as autofill_main_page
 from tests.autofill_dev.registration_username_and_email.data.UsernameAndEmailUserProvider import \
     UsernameAndEmailUserProvider
+from utils.wait_utils.WaitUtils import WaitUtils
 
 
 def test_registration_form(autofill_main_page: AFMainPage) -> None:
@@ -14,6 +15,7 @@ def test_registration_form(autofill_main_page: AFMainPage) -> None:
     user_to_create = UsernameAndEmailUserProvider.get_random_user()
     registration_result_page = EmailAndUsernamePageFlows(email_and_username_page).register_user(user_to_create)
 
+    WaitUtils.until(lambda: "Array" in registration_result_page.get_registration_results())
     registration_results = registration_result_page.get_registration_results()
 
     assert user_to_create.email in registration_results
