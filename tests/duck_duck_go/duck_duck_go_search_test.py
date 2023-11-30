@@ -1,24 +1,12 @@
 import pytest
 
 from app.duck_duck_go.search_page.DDGSearchPage import DDGSearchPage
+from tests.duck_duck_go.data.SearchPhrasesProvider import SearchPhrasesProvider
 from tests.duck_duck_go.duck_duck_go_fixture import duck_duck_go_page as search_page
 from utils.wait_utils.WaitUtils import WaitUtils
 
-ANIMALS = [
-    'panda',
-    'python',
-    'polar bear',
-    'parrot',
-    'porcupine',
-    'parakeet',
-    'pangolin',
-    'panther',
-    'platypus',
-    'peacock'
-]
 
-
-@pytest.mark.parametrize('phrase', ANIMALS)
+@pytest.mark.parametrize('phrase', SearchPhrasesProvider.get_animals())
 def test_basic_duckduckgo_search(
         phrase: str,
         search_page: DDGSearchPage) -> None:

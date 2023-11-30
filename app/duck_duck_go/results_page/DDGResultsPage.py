@@ -17,4 +17,3 @@ class DDGResultsPage(BasePage):
 
     def get_results(self) -> list[ResultComponent]:
         return [ResultComponent(locator) for locator in self._results_locator().all()]
-
