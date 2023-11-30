@@ -1,12 +1,13 @@
 from playwright.sync_api import Page
 
-from app.base.BasePage import BasePage
-from app.duck_duck_go.components.SearchComponent import SearchComponent
-from app.duck_duck_go.results_page.components.ResultComponent import ResultComponent
+from framework.base.BasePage import BasePage
+from framework.duck_duck_go.components.SearchComponent import SearchComponent
+from framework.duck_duck_go.results_page.components.ResultComponent import ResultComponent
 
 
 class DDGResultsPage(BasePage):
-    def get_search_component(self):
+    @property
+    def search_component(self):
         return SearchComponent(self._page)
 
     def _results_locator(self):

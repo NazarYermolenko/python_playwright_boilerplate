@@ -1,11 +1,11 @@
 from playwright.sync_api import Locator
 
-from app.base.BaseComponentWrapper import BaseComponentWrapper
+from framework.base.BaseComponentWrapper import BaseComponentWrapper
 
 
 class ResultComponent(BaseComponentWrapper):
     def _title_locator(self):
-        return self.wrapLocator.locator("[data-testid='result-title-a']")
+        return self._wrapLocator.locator("[data-testid='result-title-a']")
 
     def __init__(self, locator: Locator):
         super().__init__(locator)
